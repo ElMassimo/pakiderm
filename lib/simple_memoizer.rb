@@ -16,7 +16,7 @@ module SimpleMemoizer
             end
 
             def #{name}=(value)
-              #{memoized_ivar} = [super(value)]
+              #{memoized_ivar} = [value]
             end
           EVAL
         end

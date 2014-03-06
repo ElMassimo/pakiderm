@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "simple_memoizer"
-  s.version = '0.0.1'
+  s.version = '0.1.0'
   s.licenses = ['MIT']
   s.summary = "Simple memoization for simple methods"
   s.description = "Simple Memoizer is a helper module that encapsulates a modern memoization technique."
