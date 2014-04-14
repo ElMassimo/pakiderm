@@ -4,7 +4,7 @@ Pakiderm
 [![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](http://badge.fury.io/rb/pakiderm)
 [![Build Status](https://travis-ci.org/ElMassimo/pakiderm.svg)](https://travis-ci.org/ElMassimo/pakiderm)
 [![Coverage Status](https://coveralls.io/repos/ElMassimo/pakiderm/badge.png)](https://coveralls.io/r/ElMassimo/pakiderm)
-
+[![Inline docs](http://inch-pages.github.io/github/ElMassimo/pakiderm.svg)](http://inch-pages.github.io/github/ElMassimo/pakiderm)
 Allows you to memoize simple methods and works only on ruby 2.0 or greater.
 
 ## Usage
