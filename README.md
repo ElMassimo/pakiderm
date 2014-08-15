@@ -5,6 +5,7 @@ Pakiderm
 [![Build Status](https://travis-ci.org/ElMassimo/pakiderm.svg)](https://travis-ci.org/ElMassimo/pakiderm)
 [![Coverage Status](https://coveralls.io/repos/ElMassimo/pakiderm/badge.png)](https://coveralls.io/r/ElMassimo/pakiderm)
 [![Inline docs](http://inch-ci.org/github/ElMassimo/pakiderm.svg)](http://inch-ci.org/github/ElMassimo/pakiderm)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
 
 Allows you to memoize simple methods and works only on ruby 2.0 or greater.
 
