@@ -3,22 +3,21 @@ Pakiderm
 
 [![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](http://badge.fury.io/rb/pakiderm)
 [![Build Status](https://travis-ci.org/ElMassimo/pakiderm.svg)](https://travis-ci.org/ElMassimo/pakiderm)
-[![Coverage Status](https://coveralls.io/repos/ElMassimo/pakiderm/badge.png)](https://coveralls.io/r/ElMassimo/pakiderm)
+[![Coverage Status](https://coveralls.io/repos/github/ElMassimo/pakiderm/badge.svg?branch=master)](https://coveralls.io/github/ElMassimo/pakiderm?branch=master)
 [![Inline docs](http://inch-ci.org/github/ElMassimo/pakiderm.svg)](http://inch-ci.org/github/ElMassimo/pakiderm)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
 
-Allows you to memoize simple methods and works only on ruby 2.0 or greater.
+Allows you to unobtrusively memoize simple methods.
 
 ## Usage
 ```ruby
 class Counter
   extend Pakiderm
 
+  memoize \
   def increment
     @sum = 1 + @sum.to_i
   end
-
-  memoize :increment, assignable: true
 end
 ```
 Your method will only be called the first time, the result will be stored and returned on subsequent invocations.
@@ -31,28 +30,17 @@ counter.increment
 
 counter.increment
 => 1
-
-counter.increment = 5
-=> 5
-
-counter.increment
-=> 5
 ```
-As you can see, you can also pass the `assignable` option, so that the memoized methods also provide an assignment operator to override the memoized value :smiley:.
+You can also pass a list of methods that should be memoized:
+```ruby
+memoize :complex_calculation, :api_response, :db_query
+```
 
 ## Background
-Pakiderm uses `Module#prepend` to add the memoized method before yours in the method lookup path of your class. Your method is called by using 'super', because the class is an ancestor to the prepended module.
+Pakiderm adds a method by using `Module#prepend` in order to"intercept" calls to the original method and provide memoization.
 
-### Corolary
-If you override a memoized method in a derived class, you alter the method chain, so the derived method won't be memoized unless you invoke memoize in the derived class as well.
-
-
-## RDocs
-
-You can view the **Pakiderm** documentation in RDoc format here:
-
-http://rubydoc.info/github/ElMassimo/pakiderm/master/frames
-
+### Caveat
+If you override the method in a subclass, Pakiderm's method won't be able to intercept calls to the subclass' method.
 
 License
 --------

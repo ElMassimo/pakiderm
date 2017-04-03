@@ -1,32 +1,37 @@
-require 'spec_helper'
-require './lib/pakiderm'
-require 'support/counter'
+require "spec_helper"
 
 describe Pakiderm do
-  Given(:counter) { Counter.new }
+  Given(:counter_class) { Class.new(Counter) }
+  Given(:counter) { counter_class.new }
 
-  context 'when calling a method without parameters' do
-    When (:result) { counter.increment }
-    Then { result == 1 }
-    And  { counter.increment == result }
-    And  { counter.increment == result }
-  end
+  context "memoize" do
+    def memoize(*args)
+      counter_class.memoize(*args)
+    end
 
-  context 'when stepping over the memoized value' do
-    When (:result) { counter.increment = 10}
-    Then { result == 10 }
-    And  { counter.increment == 10 }
-  end
+    Given {
+      memoize :increment
+      memoize :empty?, :empty!, :decrement
+    }
 
-  context 'when method ends with a ? or a !' do
-    When { counter.empty? && counter.empty! && counter.increment }
-    Then { counter.empty? }
-    And  { counter.empty! == 0 }
-    And  { counter.sum == 1 }
-  end
+    context 'when calling a method without parameters' do
+      When (:result) { counter.increment }
+      Then { result == 1 }
+      And  { counter.increment == result }
+      And  { counter.increment == result }
+    end
 
-  context 'when not passing :assignable as true' do
-    When(:result) { counter.decrement = 5 }
-    Then { expect(result).to have_failed(NoMethodError) }
+    context 'when method ends with a ? or a !' do
+      Given {
+        counter.empty!
+        counter.increment
+        counter.empty?
+        counter.sum = 5
+      }
+      Then { counter.increment == 1 }
+      And  { counter.empty! == 0 }
+      And  { counter.empty?.nil? }
+      And  { counter.sum == 5 }
+    end
   end
 end
