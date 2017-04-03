@@ -1,35 +1,32 @@
-Pakiderm
+Pakiderm [![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](http://badge.fury.io/rb/pakiderm) [![Build Status](https://travis-ci.org/ElMassimo/pakiderm.svg)](https://travis-ci.org/ElMassimo/pakiderm) [![Coverage Status](https://coveralls.io/repos/github/ElMassimo/pakiderm/badge.svg?branch=master)](https://coveralls.io/github/ElMassimo/pakiderm?branch=master) [![Inline docs](http://inch-ci.org/github/ElMassimo/pakiderm.svg)](http://inch-ci.org/github/ElMassimo/pakiderm) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
 =====================
-
-[![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](http://badge.fury.io/rb/pakiderm)
-[![Build Status](https://travis-ci.org/ElMassimo/pakiderm.svg)](https://travis-ci.org/ElMassimo/pakiderm)
-[![Coverage Status](https://coveralls.io/repos/github/ElMassimo/pakiderm/badge.svg?branch=master)](https://coveralls.io/github/ElMassimo/pakiderm?branch=master)
-[![Inline docs](http://inch-ci.org/github/ElMassimo/pakiderm.svg)](http://inch-ci.org/github/ElMassimo/pakiderm)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
 
 Allows you to unobtrusively memoize simple methods.
 
-## Usage
 ```ruby
-class Counter
+class Stopwatch
   extend Pakiderm
 
+  def start
+    @started_at = Time.now
+  end
+
+  def stop
+    elapsed_time
+  end
+
   memoize \
-  def increment
-    @sum = 1 + @sum.to_i
+  def elapsed_time
+    Time.now - @started_at
   end
 end
 ```
-Your method will only be called the first time, the result will be stored and returned on subsequent invocations.
-```irb
-counter = Counter.new
-=> Counter
-
-counter.increment
-=> 1
-
-counter.increment
-=> 1
+Memoized methods will only be called the first time; the result will be stored and returned on subsequent invocations.
+```ruby
+stopwatch = Stopwatch.new
+stopwatch.start
+stopwatch.stop         # Example: 3.991826
+stopwatch.elapsed_time #       => 3.991826
 ```
 You can also pass a list of methods that should be memoized:
 ```ruby
