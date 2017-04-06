@@ -1,7 +1,7 @@
 Pakiderm [![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](http://badge.fury.io/rb/pakiderm) [![Build Status](https://travis-ci.org/ElMassimo/pakiderm.svg)](https://travis-ci.org/ElMassimo/pakiderm) [![Coverage Status](https://coveralls.io/repos/github/ElMassimo/pakiderm/badge.svg?branch=master)](https://coveralls.io/github/ElMassimo/pakiderm?branch=master) [![Inline docs](http://inch-ci.org/github/ElMassimo/pakiderm.svg)](http://inch-ci.org/github/ElMassimo/pakiderm) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
 =====================
 
-Allows you to unobtrusively memoize simple methods.
+Allows you to unobtrusively memoize methods without parameters.
 
 ```ruby
 class Stopwatch
