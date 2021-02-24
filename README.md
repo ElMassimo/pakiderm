@@ -1,4 +1,4 @@
-Pakiderm [![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](http://badge.fury.io/rb/pakiderm) [![Build Status](https://github.com/ElMassimo/pakiderm/workflows/build/badge.svg)](https://github.com/ElMassimo/pakiderm/actions) [![Test Coverage](https://codeclimate.com/github/ElMassimo/pakiderm/badges/coverage.svg)](https://codeclimate.com/github/ElMassimo/pakiderm) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
+Pakiderm [![Gem Version](https://badge.fury.io/rb/pakiderm.svg)](https://rubygems.org/gems/pakiderm) [![Build Status](https://github.com/ElMassimo/pakiderm/workflows/build/badge.svg)](https://github.com/ElMassimo/pakiderm/actions) [![Test Coverage](https://codeclimate.com/github/ElMassimo/pakiderm/badges/coverage.svg)](https://codeclimate.com/github/ElMassimo/pakiderm) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ElMassimo/queryable/blob/master/LICENSE.txt)
 =====================
 
 Allows you to unobtrusively memoize methods without parameters.
