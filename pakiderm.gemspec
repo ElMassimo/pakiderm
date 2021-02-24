@@ -10,10 +10,10 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/ElMassimo/pakiderm"
   s.license = "MIT"
   s.extra_rdoc_files = ["README.md"]
-  s.files = Dir.glob("{lib}/**/*.rb") + %w(README.md)
+  s.files = Dir.glob("{lib}/**/*.rb") + %w(README.md CHANGELOG.md)
   s.require_path = "lib"
 
-  s.required_ruby_version = "~> 2.0"
+  s.required_ruby_version = ">= 2.0"
 
   s.add_development_dependency "rspec-given", "~> 3.0"
 end

@@ -8,7 +8,7 @@
 #
 #     memoize \
 #     def recent_activity
-#       NSA.get("/api/#{person.id}")
+#       Activities.get("/api/#{person.id}")
 #     end
 #   end
 #
@@ -19,7 +19,7 @@ module Pakiderm
   #
   # Examples
   #
-  #   memoize :tired?, :complex_formula, :long_running_method!
+  #   memoize :ready?, :complex_formula, :long_running_method!
   #
   # Returns nothing.
   def memoize(*names)
